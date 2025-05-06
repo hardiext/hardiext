@@ -65,3 +65,5 @@
 <div align="center">
   <img height="200" src="https://user-images.githubusercontent.com/55389276/140866485-8fb1c876-9a8f-4d6a-98dc-08c4981eaf70.gif"  />
 </div>
+
+![snake gif](https://github.com/ecizen/ecizen/blob/output/github-snake-dark.svg)

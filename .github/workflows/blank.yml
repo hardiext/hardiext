@@ -12,32 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Install ImageMagick untuk manipulasi GIF
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
-
-      # Generate Snake GIF dan SVG dengan background gelap
       - name: Generate Snake GIF and SVG
         uses: Platane/snk@v3
         with:
           github_user_name: hardiext
-          gif_out_path: dist/github-contribution-grid-snake.gif
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          output_branch: output
+          gif_out_path: github-contribution-grid-snake.gif
+          svg_out_path: github-contribution-grid-snake.svg
           palette: github-dark
           color_snake: "#ff4500"
           color_dots: "#161b22,#21262d,#30363d,#484f58"
-
-      # Convert GIF agar background putih jadi transparan (otomatis)
-      - name: Make GIF Transparent
-        run: |
-          mkdir -p dist/transparent
-          convert dist/github-contribution-grid-snake.gif -transparent "#0d1117" dist/transparent/github-contribution-grid-snake-transparent.gif
-
-      # Push hasil ke GitHub Pages
-      - name: Publish to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.1.3
-        with:
-          target_branch: output
-          build_dir: dist/transparent
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

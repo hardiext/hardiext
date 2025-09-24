@@ -1,5 +1,6 @@
-name: Generate Snake
+name: Generate GitHub Snake
 
+# Jalankan setiap 6 jam dan bisa manual dari tab Actions
 on:
   schedule:
     - cron: "0 */6 * * *"
@@ -8,9 +9,12 @@ on:
 jobs:
   generate-snake:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout repository
       - uses: actions/checkout@v4
 
+      # Generate Snake GIF & SVG langsung ke branch `output`
       - name: Generate Snake GIF & SVG
         uses: Platane/snk@v3
         with:
@@ -19,3 +23,14 @@ jobs:
           gif_out_path: github-contribution-grid-snake.gif
           svg_out_path: github-contribution-grid-snake.svg
           palette: github-dark
+          color_snake: "#ff4500"
+          color_dots: "#161b22,#21262d,#30363d,#484f58"
+
+      # (Opsional) Generate GIF/ SVG versi light
+      - name: Generate Light Mode SVG
+        uses: Platane/snk@v3
+        with:
+          github_user_name: hardiext
+          output_branch: output
+          svg_out_path: github-contribution-grid-snake.svg
+          palette: github-light

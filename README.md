@@ -91,23 +91,9 @@
   </picture>
 </p> -->
 <picture>
-  <!-- Dark mode -->
-  <source
-    media="(prefers-color-scheme: dark)"
-    srcset="https://github.com/hardiext/hardiext/raw/output/github-contribution-grid-snake-dark.gif"
-  />
-
-  <!-- Light mode -->
-  <source
-    media="(prefers-color-scheme: light)"
-    srcset="https://github.com/hardiext/hardiext/raw/output/github-contribution-grid-snake.gif"
-  />
-
-  <!-- Fallback -->
-  <img
-    alt="GitHub contribution grid snake animation"
-    src="https://github.com/hardiext/hardiext/raw/output/github-contribution-grid-snake.gif"
-  />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hardiext/hardiext/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/hardiext/hardiext/output/pacman-contribution-graph.svg">
+  <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/hardiext/hardiext/output/pacman-contribution-graph.svg">
 </picture>
 
 

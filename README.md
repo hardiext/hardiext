@@ -85,7 +85,11 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
+<p align="center">
+  <picture>
+    <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
+  </picture>
+</p>
 
 ###
 

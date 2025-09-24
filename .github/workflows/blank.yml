@@ -2,7 +2,7 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Menjalankan setiap 6 jam
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
@@ -12,25 +12,32 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      # Install ImageMagick untuk manipulasi GIF
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      # Generate Snake GIF dan SVG dengan background gelap
       - name: Generate Snake GIF and SVG
         uses: Platane/snk@v3
-        id: snake
         with:
-          github_user_name: mishmanners  # Ganti dengan username GitHub Anda
+          github_user_name: hardiext
           gif_out_path: dist/github-contribution-grid-snake.gif
           svg_out_path: dist/github-contribution-grid-snake.svg
-          outputs: |
-            dist/github-contribution-grid-snake.gif
-            dist/github-contribution-grid-snake-dark.gif?palette=github-dark
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
-          color_snake: orange
-          color_dots: "#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9"
+          palette: github-dark
+          color_snake: "#ff4500"
+          color_dots: "#161b22,#21262d,#30363d,#484f58"
 
-      - name: Push to Output Branch
+      # Convert GIF agar background putih jadi transparan (otomatis)
+      - name: Make GIF Transparent
+        run: |
+          mkdir -p dist/transparent
+          convert dist/github-contribution-grid-snake.gif -transparent "#0d1117" dist/transparent/github-contribution-grid-snake-transparent.gif
+
+      # Push hasil ke GitHub Pages
+      - name: Publish to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.1.3
         with:
           target_branch: output
-          build_dir: dist
+          build_dir: dist/transparent
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

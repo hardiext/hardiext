@@ -90,7 +90,7 @@
     <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
   </picture>
 </p> -->
-![Snake animation](https://github.com/hardiext/hardiext/blob/output/github-contribution-grid-snake-dark.gif?raw=true)
+![Snake animation](https://github.com/hardiext/hardiext/blob/output/github-contribution-grid-snake.gif?raw=true)
 
 
 ###

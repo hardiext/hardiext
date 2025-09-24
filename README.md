@@ -90,7 +90,25 @@
     <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
   </picture>
 </p> -->
-![Snake animation](https://github.com/hardiext/hardiext/blob/output/github-contribution-grid-snake-dark.gif?raw=true)
+<picture>
+  <!-- Dark mode -->
+  <source
+    media="(prefers-color-scheme: dark)"
+    srcset="https://github.com/hardiext/<REPO>/raw/output/github-contribution-grid-snake-dark.gif"
+  />
+
+  <!-- Light mode -->
+  <source
+    media="(prefers-color-scheme: light)"
+    srcset="https://github.com/hardiext/<REPO>/raw/output/github-contribution-grid-snake.gif"
+  />
+
+  <!-- Fallback -->
+  <img
+    alt="GitHub contribution grid snake animation"
+    src="https://github.com/hardiext/<REPO>/raw/output/github-contribution-grid-snake.gif"
+  />
+</picture>
 
 
 ###

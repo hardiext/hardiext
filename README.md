@@ -85,7 +85,7 @@
 
 ###
 
-<img src="https://raw.githubusercontent.com/ecizen/ecize/output/snake.svg" alt="Snake animation" />
+<img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
 
 ###
 

@@ -1,40 +1,31 @@
-name: Generate GitHub Snake
+name: Generate Pac-Man Game
 
-# Jalankan setiap 6 jam dan bisa manual dari tab Actions
 on:
-  schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:
+  schedule: # Run automatically every 24 hours
+    - cron: "0 */24 * * *"
+  workflow_dispatch: # Allows manual triggering
+  push: # Runs on every push to the main branch
+    branches:
+      - main
 
 jobs:
-  generate-snake:
+  generate:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
-      # Checkout repository
-      - uses: actions/checkout@v4
-
-      # Install ImageMagick (opsional, kalau mau manipulasi GIF)
-      - name: Install ImageMagick
-        run: sudo apt-get update && sudo apt-get install -y imagemagick
-
-      # Generate Dark Mode GIF & SVG
-      - name: Generate Dark Mode GIF & SVG
-        uses: Platane/snk@v3
+      - name: Generate pacman-contribution-graph.svg
+        uses: abozanona/pacman-contribution-graph@main
         with:
-          github_user_name: hardiext
-          output_branch: output
-          gif_out_path: github-contribution-grid-snake-dark.gif
-          svg_out_path: github-contribution-grid-snake-dark.svg
-          palette: github-dark
-          color_snake: "#ff4500"
-          color_dots: "#161b22,#21262d,#30363d,#484f58"
+          github_user_name: ${{ github.repository_owner }}
 
-      # Generate Light Mode SVG
-      - name: Generate Light Mode SVG
-        uses: Platane/snk@v3
+      # Push the generated SVG to the output branch
+      - name: Push pacman-contribution-graph.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v2.1.3
         with:
-          github_user_name: hardiext
-          output_branch: output
-          svg_out_path: github-contribution-grid-snake.svg
-          palette: github-light
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

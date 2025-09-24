@@ -90,13 +90,7 @@
     <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
   </picture>
 </p> -->
-<picture>
-  <!-- Dark mode -->
-  <source srcset="https://raw.githubusercontent.com/hardiext/hardiext/output/github-snake-dark.svg" media="(prefers-color-scheme: dark)">
-  
-  <!-- Light mode -->
-  <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/github-snake-light.svg" alt="GitHub Snake">
-</picture>
+
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/hardiext/hardiext/output/pacman-contribution-graph-dark.svg">

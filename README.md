@@ -85,11 +85,12 @@
 
 ###
 
-<p align="center">
+<!-- <p align="center">
   <picture>
     <img src="https://raw.githubusercontent.com/hardiext/hardiext/output/snake.svg" alt="Snake animation" />
   </picture>
-</p>
+</p> -->
+  ![snake gif](https://github.com/hardiext/hardiext/blob/output/github-contribution-grid-snake.gif)
 
 ###
 
